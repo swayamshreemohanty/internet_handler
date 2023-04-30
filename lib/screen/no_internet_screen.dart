@@ -9,7 +9,7 @@ class NoInternetScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Center(
         child: Image.asset(
-          "assets/no-internet.png",
+          "packages/internet_handler/assets/no-internet.png",
           width: 400,
           height: 400,
         ),
