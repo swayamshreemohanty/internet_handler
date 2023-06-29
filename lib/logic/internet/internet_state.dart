@@ -8,13 +8,13 @@ abstract class InternetState extends Equatable {
 class InternetLoading extends InternetState {}
 
 class InternetConnected extends InternetState {
-  final ConnectionType connectionType;
+  final InternetConnectionType internetConnectionType;
   InternetConnected({
-    required this.connectionType,
+    required this.internetConnectionType,
   });
 
   @override
-  List<Object> get props => [connectionType];
+  List<Object> get props => [internetConnectionType];
 }
 
 class InternetDisconnected extends InternetState {}

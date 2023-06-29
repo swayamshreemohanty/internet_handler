@@ -3,10 +3,10 @@ description: internet handler package.
 
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+1
+version: 1.0.1+1
 
 environment:
-  sdk: ">=2.19.5 <3.0.0"
+  sdk: ">=3.0.2 <4.0.0"
 
 dependencies:
   connectivity_plus: ^3.0.4

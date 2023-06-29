@@ -16,9 +16,9 @@ class InternetCubit extends Cubit<InternetState> {
 
   void checkConnectivity(ConnectivityResult connectivityResult) {
     if (connectivityResult == ConnectivityResult.wifi) {
-      emitInternetConnected(ConnectionType.wifi);
+      emitInternetConnected(InternetConnectionType.wifi);
     } else if (connectivityResult == ConnectivityResult.mobile) {
-      emitInternetConnected(ConnectionType.mobile);
+      emitInternetConnected(InternetConnectionType.mobile);
     } else if (connectivityResult == ConnectivityResult.none) {
       emitInternetDisconnected();
     }
@@ -37,9 +37,9 @@ class InternetCubit extends Cubit<InternetState> {
     );
   }
 
-  void emitInternetConnected(ConnectionType connectionType) {
+  void emitInternetConnected(InternetConnectionType internetConnectionType) {
     emit(InternetLoading());
-    emit(InternetConnected(connectionType: connectionType));
+    emit(InternetConnected(internetConnectionType: internetConnectionType));
   }
 
   void emitInternetDisconnected() {
