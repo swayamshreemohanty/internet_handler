@@ -9,12 +9,12 @@ import '../../model/internet_enum.dart';
 part 'internet_state.dart';
 
 class InternetCubit extends Cubit<InternetState> {
-  final Connectivity connectivity;
-
-  InternetCubit(this.connectivity) : super(InternetLoading()) {
+  InternetCubit() : super(InternetLoading()) {
     monitorInternetConnection();
   }
 
+  final connectivity = Connectivity();
+  
   late StreamSubscription _connectivityStreamSubscription;
 
   void checkConnectivity(ConnectivityResult connectivityResult) {
