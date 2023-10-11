@@ -14,7 +14,7 @@ class InternetCubit extends Cubit<InternetState> {
   }
 
   final connectivity = Connectivity();
-  
+
   late StreamSubscription _connectivityStreamSubscription;
 
   void checkConnectivity(ConnectivityResult connectivityResult) {
@@ -56,6 +56,7 @@ class InternetCubit extends Cubit<InternetState> {
     return super.close();
   }
 
+  @pragma('vm:entry-point')
   /// Check for internet connectivity
   Future<bool> isInternetAvailable() async {
     var connectivityResult = await Connectivity().checkConnectivity();
