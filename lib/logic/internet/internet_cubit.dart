@@ -1,8 +1,11 @@
 import 'dart:async';
+
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../model/internet_enum.dart';
+
 part 'internet_state.dart';
 
 class InternetCubit extends Cubit<InternetState> {
@@ -51,5 +54,14 @@ class InternetCubit extends Cubit<InternetState> {
   Future<void> close() {
     _connectivityStreamSubscription.cancel();
     return super.close();
+  }
+
+  /// Check for internet connectivity
+  Future<bool> isInternetAvailable() async {
+    var connectivityResult = await Connectivity().checkConnectivity();
+    if (connectivityResult == ConnectivityResult.none) {
+      return false;
+    }
+    return true;
   }
 }

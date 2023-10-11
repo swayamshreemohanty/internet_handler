@@ -9,7 +9,7 @@ environment:
   sdk: ">=3.0.2 <4.0.0"
 
 dependencies:
-  connectivity_plus: ^4.0.2
+  connectivity_plus: ^5.0.0
   equatable: ^2.0.5
   flutter:
     sdk: flutter
