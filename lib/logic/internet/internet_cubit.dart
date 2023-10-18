@@ -9,7 +9,11 @@ import '../../model/internet_enum.dart';
 part 'internet_state.dart';
 
 class InternetCubit extends Cubit<InternetState> {
-  InternetCubit() : super(InternetLoading()) {
+  InternetCubit()
+      : super(InternetState(
+          loading: true,
+          internetConnectionType: InternetConnectionType.none,
+        )) {
     monitorInternetConnection();
   }
 
@@ -17,11 +21,20 @@ class InternetCubit extends Cubit<InternetState> {
 
   late StreamSubscription _connectivityStreamSubscription;
 
-  void checkConnectivity(ConnectivityResult connectivityResult) {
+  void checkConnectivity(
+    ConnectivityResult connectivityResult, {
+    bool initialConnectionCheck = false,
+  }) {
     if (connectivityResult == ConnectivityResult.wifi) {
-      emitInternetConnected(InternetConnectionType.wifi);
+      emitInternetConnected(
+        InternetConnectionType.wifi,
+        initialConnectionCheck: initialConnectionCheck,
+      );
     } else if (connectivityResult == ConnectivityResult.mobile) {
-      emitInternetConnected(InternetConnectionType.mobile);
+      emitInternetConnected(
+        InternetConnectionType.mobile,
+        initialConnectionCheck: initialConnectionCheck,
+      );
     } else if (connectivityResult == ConnectivityResult.none) {
       emitInternetDisconnected();
     }
@@ -30,7 +43,7 @@ class InternetCubit extends Cubit<InternetState> {
   Future<StreamSubscription<ConnectivityResult>>
       monitorInternetConnection() async {
     final initialConnectionStatus = await connectivity.checkConnectivity();
-    checkConnectivity(initialConnectionStatus);
+    checkConnectivity(initialConnectionStatus, initialConnectionCheck: true);
 
     return _connectivityStreamSubscription =
         connectivity.onConnectivityChanged.listen(
@@ -40,14 +53,20 @@ class InternetCubit extends Cubit<InternetState> {
     );
   }
 
-  void emitInternetConnected(InternetConnectionType internetConnectionType) {
-    emit(InternetLoading());
-    emit(InternetConnected(internetConnectionType: internetConnectionType));
+  void emitInternetConnected(
+    InternetConnectionType internetConnectionType, {
+    bool initialConnectionCheck = false,
+  }) {
+    emit(state.copyWith(loading: true));
+    emit(state.copyWith(
+      connected: true,
+      internetConnectionType: internetConnectionType,
+    ));
   }
 
   void emitInternetDisconnected() {
-    emit(InternetLoading());
-    emit(InternetDisconnected());
+    emit(state.copyWith(loading: true));
+    emit(state.copyWith(disconnected: true));
   }
 
   @override
@@ -57,6 +76,7 @@ class InternetCubit extends Cubit<InternetState> {
   }
 
   @pragma('vm:entry-point')
+
   /// Check for internet connectivity
   Future<bool> isInternetAvailable() async {
     var connectivityResult = await Connectivity().checkConnectivity();
