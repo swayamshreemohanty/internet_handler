@@ -45,7 +45,7 @@
     },
     {
       "name": "connectivity_plus",
-      "rootUri": "file:///C:/Users/Swayamshree/AppData/Local/Pub/Cache/hosted/pub.dev/connectivity_plus-5.0.0",
+      "rootUri": "file:///C:/Users/Swayamshree/AppData/Local/Pub/Cache/hosted/pub.dev/connectivity_plus-5.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -57,9 +57,9 @@
     },
     {
       "name": "dbus",
-      "rootUri": "file:///C:/Users/Swayamshree/AppData/Local/Pub/Cache/hosted/pub.dev/dbus-0.7.8",
+      "rootUri": "file:///C:/Users/Swayamshree/AppData/Local/Pub/Cache/hosted/pub.dev/dbus-0.7.10",
       "packageUri": "lib/",
-      "languageVersion": "2.15"
+      "languageVersion": "2.17"
     },
     {
       "name": "equatable",
@@ -93,9 +93,9 @@
     },
     {
       "name": "flutter_lints",
-      "rootUri": "file:///C:/Users/Swayamshree/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-2.0.3",
+      "rootUri": "file:///C:/Users/Swayamshree/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-3.0.1",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.0"
     },
     {
       "name": "flutter_test",
@@ -117,7 +117,7 @@
     },
     {
       "name": "lints",
-      "rootUri": "file:///C:/Users/Swayamshree/AppData/Local/Pub/Cache/hosted/pub.dev/lints-2.1.1",
+      "rootUri": "file:///C:/Users/Swayamshree/AppData/Local/Pub/Cache/hosted/pub.dev/lints-3.0.0",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -165,13 +165,13 @@
     },
     {
       "name": "plugin_platform_interface",
-      "rootUri": "file:///C:/Users/Swayamshree/AppData/Local/Pub/Cache/hosted/pub.dev/plugin_platform_interface-2.1.6",
+      "rootUri": "file:///C:/Users/Swayamshree/AppData/Local/Pub/Cache/hosted/pub.dev/plugin_platform_interface-2.1.7",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.0"
     },
     {
       "name": "provider",
-      "rootUri": "file:///C:/Users/Swayamshree/AppData/Local/Pub/Cache/hosted/pub.dev/provider-6.0.5",
+      "rootUri": "file:///C:/Users/Swayamshree/AppData/Local/Pub/Cache/hosted/pub.dev/provider-6.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -242,7 +242,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-11-24T09:30:44.478549Z",
+  "generated": "2023-11-24T09:36:30.320831Z",
   "generator": "pub",
   "generatorVersion": "3.1.5"
 }
