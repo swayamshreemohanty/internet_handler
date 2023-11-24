@@ -20,10 +20,7 @@ class InternetCubit extends Cubit<InternetState> {
   final connectivity = Connectivity();
   late StreamSubscription _connectivityStreamSubscription;
 
-  void checkConnectivity(
-    ConnectivityResult connectivityResult, {
-    bool initialConnectionCheck = false,
-  }) {
+  void checkConnectivity(ConnectivityResult connectivityResult) {
     if (connectivityResult == ConnectivityResult.wifi) {
       emitInternetConnected(InternetConnectionType.wifi);
     } else if (connectivityResult == ConnectivityResult.mobile) {
@@ -36,13 +33,17 @@ class InternetCubit extends Cubit<InternetState> {
   Future<StreamSubscription<ConnectivityResult>> monitorInternetConnection(
       bool enableInitialConnectionCheck) async {
     if (enableInitialConnectionCheck) {
+      print("------------------------------");
+
       final initialConnectionStatus = await connectivity.checkConnectivity();
-      checkConnectivity(initialConnectionStatus, initialConnectionCheck: true);
+      checkConnectivity(initialConnectionStatus);
     }
+    print("0000000000000000000000000000");
 
     return _connectivityStreamSubscription =
         connectivity.onConnectivityChanged.listen(
       (connectivityResult) {
+        print("1111111111111111111111111");
         checkConnectivity(connectivityResult);
       },
     );
