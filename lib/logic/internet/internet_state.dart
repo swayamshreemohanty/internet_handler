@@ -5,14 +5,12 @@ class InternetState extends Equatable {
   final bool loading;
   final bool connected;
   final bool disconnected;
-  final bool initialConnectionCheck;
   final InternetConnectionType internetConnectionType;
 
   InternetState({
     this.loading = false,
     this.connected = false,
     this.disconnected = false,
-    this.initialConnectionCheck = false,
     required this.internetConnectionType,
   });
 
@@ -22,7 +20,6 @@ class InternetState extends Equatable {
       loading,
       connected,
       disconnected,
-      initialConnectionCheck,
       internetConnectionType,
     ];
   }
@@ -31,14 +28,12 @@ class InternetState extends Equatable {
     bool? loading,
     bool? connected,
     bool? disconnected,
-    bool? initialConnectionCheck,
     InternetConnectionType? internetConnectionType,
   }) {
     return InternetState(
       loading: loading ?? false,
       connected: connected ?? false,
       disconnected: disconnected ?? false,
-      initialConnectionCheck: initialConnectionCheck ?? false,
       internetConnectionType:
           internetConnectionType ?? InternetConnectionType.none,
     );
